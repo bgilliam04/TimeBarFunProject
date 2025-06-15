@@ -1,0 +1,89 @@
+<!-- Display the countdown timer in an element -->
+<p style="text-align: center; font-family: 'Trebuchet MS', sans-serif; font-size: x-large;" id="demo" ></p>
+<head>
+  <style>
+    #progressContainer {
+      width: 100%;
+      height: 20px;
+      background-color: #ddd;
+      align-items: center;
+    }
+
+    #progressBarFill {
+      height: 100%;
+      background-color: #ff0f0f;
+      width: 0%;
+      transition: width 0.5s ease;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+<div id="progressContainer">
+  <div id="progressBarFill"></div>
+</div>
+<span id="progressText">0%</span>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Sept 5, 2025 16:43:00").getTime();
+var daysProgress = 0;
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+
+  }
+
+  daysProgress = days;
+
+}, 1000);
+
+var daystotal = 95;
+var hoursTotal = 2280;
+var minutesTotal = 136800;
+var secondsTotal = 8208000;
+
+function updateProgressBar(progressPercentage) {
+    const progressBarFill = document.getElementById('progressBarFill');
+    const progressText = document.getElementById('progressText');
+    progressBarFill.style.width = `${progressPercentage}%`;
+    progressText.textContent = `${progressPercentage}%`;
+  }
+
+  let currentProgress = 0;
+  const interval = setInterval(() => {
+    currentProgress = daysProgress;
+    currentProgress = ((daystotal-currentProgress) / daystotal) * 100; // Calculate percentage based on total days
+    if (currentProgress > 100) {
+      clearInterval(interval);
+    } else {
+      updateProgressBar(currentProgress.toFixed(2)); // Update the progress bar with the current percentage
+    }
+  }, 1000);
+
+
+
+
+
+</script>
