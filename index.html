@@ -1,6 +1,9 @@
 <!-- Display the countdown timer in an element -->
-<p style="text-align: center; font-family: 'Trebuchet MS', sans-serif; font-size: x-large;" id="demo" ></p>
 <head>
+    <header style="text-align: center; font-family: 'Trebuchet MS', sans-serif; font-size: x-large; color: rgb(68, 14, 23);">
+        <h1>Countdown till Jakob and Bria are Reunited</h1>
+    </header>
+    <title>Countdown Timer</title>
   <style>
     #progressContainer {
       width: 100%;
@@ -11,19 +14,20 @@
 
     #progressBarFill {
       height: 100%;
-      background-color: #ff0f0f;
+      background-color: palevioletred;
       width: 0%;
       transition: width 0.5s ease;
       align-items: center;
     }
   </style>
 </head>
-<body>
+<body style="background-color:pink;">
 
 <div id="progressContainer">
   <div id="progressBarFill"></div>
 </div>
-<span id="progressText">0%</span>
+<span style="font-family: fantasy; font-size: 30px; color: rgb(80, 8, 20); font-weight: bold;" id="progressText">0%</span>
+<p style="text-align: center; font-family: 'Trebuchet MS', sans-serif; font-size: x-large; color: rgb(68, 14, 23);" id="demo" ></p>
 
 <script>
 // Set the date we're counting down to
