@@ -33,6 +33,7 @@
 // Set the date we're counting down to
 var countDownDate = new Date("Sept 5, 2025 16:43:00").getTime();
 var daysProgress = 0;
+var secondsProgress = 0;
 // Update the count down every 1 second
 var x = setInterval(function() {
 
@@ -59,7 +60,7 @@ var x = setInterval(function() {
 
   }
 
-  daysProgress = days;
+  secondsProgress = seconds + (minutes * 60) + (hours * 3600) + (days * 86400);
 
 }, 1000);
 
@@ -77,8 +78,8 @@ function updateProgressBar(progressPercentage) {
 
   let currentProgress = 0;
   const interval = setInterval(() => {
-    currentProgress = daysProgress;
-    currentProgress = ((daystotal-currentProgress) / daystotal) * 100; // Calculate percentage based on total days
+    currentProgress = secondsProgress;
+    currentProgress = ((secondsTotal-currentProgress) / secondsTotal) * 100; // Calculate percentage based on total days
     if (currentProgress > 100) {
       clearInterval(interval);
     } else {
